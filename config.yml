@@ -1,0 +1,32 @@
+# Backend configuration
+backend:
+  accessToken: ""
+  # Enable the function to save the whiteboard to a file so you save the state even on server restarts -- boolean
+  enableFileDatabase: false
+  # Backend performance tweaks
+  performance:
+    whiteboardInfoBroadcastFreq: 1
+
+# Frontend configuration
+frontend:
+  # When a whiteboard is loaded on a client
+  onWhiteboardLoad:
+    # should an (editable) whiteboard be started in read-only mode by default -- boolean
+    setReadOnly: false
+  showSmallestScreenIndicator: true
+  # Image download format, can be "png", "jpeg" (or "webp" -> only working on chrome) -- string
+  imageDownloadFormat: "png"
+  imageURL: ""
+  # draw the background grid to images on download ? (If True, even PNGs are also not transparent anymore) -- boolean
+  drawBackgroundGrid: false
+  # Background Image; Replace it if you want your own
+  backgroundGridImage: "bg_grid.png"
+  performance:
+    refreshInfoFreq: 5
+    pointerEventsThrottling:
+      - fromUserCount: 0
+        minDistDelta: 1
+        maxFreq: 30
+      - fromUserCount: 10
+        minDistDelta: 5
+        maxFreq: 10
